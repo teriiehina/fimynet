@@ -41,7 +41,7 @@
       <section>
 
         <div>
-          <form id="search" action="#">
+          <form id="search" action="#" onsubmit="javascript:return false;">
             <select id="from" name="from">
               <option disable="disabled" value="-1">From Station...</option>
             </select>
@@ -51,7 +51,7 @@
             </select>
             <br />
 
-            <input id="mode" type="hidden" name="mode" />
+            <input id="mode" type="hidden" name="mode" value="-1"/>
             <input type="submit" value="a pied" onclick="javascript:onModeClick(this.value);"/>
             <input type="submit" value="autres" onclick="javascript:onModeClick(this.value);"/>
           </form>

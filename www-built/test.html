@@ -8,13 +8,26 @@
       var networks = new FMNNetwork()
 //      alert (networks.getNetworks());
 //      alert (networks.getStations(""));
-      alert (paris);
-
+     paris.pathBetween("Oberkampf", "Buzenval");
 
     </script>
   </head>
 
 <body>
+
+<script>
+//  for (var i in paris.distances) {
+//    var d = paris.distances[i];
+//    for (var j in d) {
+//      document.write(i + " : " + j + " = "  + paris.distances[i][j] + "<br>");
+//    }
+//  }
+
+  for (var i in paris.costs) {
+    document.write(i + " = "  + paris.costs[i] + "<br>");
+  }
+
+</script>
 
 </body>
 </html>

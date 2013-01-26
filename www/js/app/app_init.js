@@ -5,15 +5,20 @@ function appInit () {
 
 	var networks = myFMN.getNetworks();
 
-	var networkChooser = $('#network_chooser');
-	for (var networkIndex in networks) {
-		networkChooser.append('<option value="' + networkIndex + '">' + networks[networkIndex] + '</option>');
+	if (networks.length > 0)
+	{
+		var networkChooser = $('#network_chooser');
+		for (var networkIndex = 0; networkIndex < networks.length; networkIndex++) {
+			networkChooser.append('<option value="' + networkIndex + '">' + networks[networkIndex] + '</option>');
+		}
+	}
+	else {
+		alert("No network available");
 	}
 
 	networkChooser.bind('change', onNetworkSelected);
 
-	var form = $('#search');
-	form.bind('submit', onFormSubmit);
+	$('#search').bind('submit', onFormSubmit);
 }
 
 function onNetworkSelected() {
@@ -35,11 +40,12 @@ function onNetworkSelected() {
 
 function onModeClick(mode) {
 	$('#mode').val(mode);
+	return false;
 }
 
-function onFormSubmit() {
-	var fromStationIndex	= parseInt($('#from').value, 10);
-	var toStationIndex		= parseInt($('#to').value, 10);
+function onFormSubmit(event) {
+	var fromStationIndex	= parseInt(event.target.from.value, 10);
+	var toStationIndex		= parseInt(event.target.to.value, 10);
 
 	var stations = myFMN.getStations(myFMN.currentNetwork);
 
@@ -54,7 +60,8 @@ function onFormSubmit() {
 	}
 	else {
 		var mode = $('#mode').val();
-		onSearchSuccess(myFMN.search(myFMN.currentNetwork , stations[fromStationIndex] , stations[toStationIndex] , mode));
+		//onSearchSuccess(myFMN.search(myFMN.currentNetwork, stations[fromStationIndex] , stations[toStationIndex] , mode));
+		onSearchSuccess(paris.pathBetween("Oberkampf", "Buzenval"));
 	}
 	return false;
 }
@@ -64,7 +71,6 @@ function onSearchSuccess(result) {
 		alert('No result found :(');
 	}
 	else {
-		alert(result);
 		var divResult = $('#result');
 
 		var ul = $('<ul />');
