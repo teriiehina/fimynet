@@ -21,6 +21,7 @@ FMNGraph.prototype.initDistances = function () {
     this.distances[node1.name] = {};
     for (var j = 0 ; j < nodes_count ; j++) {
       var node2 = this.nodes[j];
+//      console.log("distance entre " + node1.name + " et " + node2.name);
       if (this.adjacent(node1 , node2))
         this.distances[node1.name][node2.name] = 1;
       else 
@@ -30,7 +31,14 @@ FMNGraph.prototype.initDistances = function () {
 }
 
 FMNGraph.prototype.adjacent = function (node1 , node2) {
-
+  var edges_count = this.edges.length;
+  for (var i = 0 ; i < edges_count ; i++) {
+    var edge = this.edges[i];
+    if(edge.node1Name == node1.name && edge.node2Name == node2.name) {
+      return 1;
+    }
+  }
+  return 0;
 };
 
 FMNGraph.prototype.neighbors = function(node) {
@@ -100,11 +108,11 @@ FMNGraph.prototype.pathBetween = function(start , end) {
 };
 
 function FMNNode(nodeName) {
-  var name = nodeName;
+  this.name = nodeName;
 };
 
 function FMNEdge(edgeValue , node1Name , node2Name) {
-  var value = edgeValue;
-  var node1 = node1Name;
-  var node2 = node2Name;
+  this.value = edgeValue;
+  this.node1Name = node1Name;
+  this.node2Name = node2Name;
 };
