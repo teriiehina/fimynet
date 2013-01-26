@@ -2,6 +2,7 @@ var myFMN;
 
 function appInit () {
 	myFMN = new FMNNetwork();
+	myFMN.addStations('Métro parisien', paris.nodes);
 
 	var networks = myFMN.getNetworks();
 
@@ -30,7 +31,7 @@ function onNetworkSelected() {
 		var networkStations = myFMN.getStations(myFMN.currentNetwork);
 		var stationSelects = $('#search>select');
 		for (var stationIndex in networkStations) {
-			stationSelects.append('<option value="' + stationIndex + '">' + networkStations[stationIndex] + '</option>');
+			stationSelects.append('<option value="' + stationIndex + '">' + networkStations[stationIndex].name + '</option>');
 		}
 	}
 	else {
@@ -61,7 +62,7 @@ function onFormSubmit(event) {
 	else {
 		var mode = $('#mode').val();
 		//onSearchSuccess(myFMN.search(myFMN.currentNetwork, stations[fromStationIndex] , stations[toStationIndex] , mode));
-		onSearchSuccess(paris.pathBetween("Concorde", "Argentine"));
+		onSearchSuccess(paris.pathBetween(stations[fromStationIndex].name, stations[toStationIndex].name));
 	}
 	return false;
 }
@@ -75,7 +76,8 @@ function onSearchSuccess(result) {
 
 		var ul = $('<ul />');
 		for (var resultIndex in result) {
-			ul.append('<li>' + result[resultIndex] + '</li>');
+			var resultStation = result[resultIndex];
+			ul.append('<li>' + resultStation.name + '</li>');
 		}
 		divResult.html(ul);
 	}

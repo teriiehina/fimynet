@@ -9,7 +9,7 @@ FMNNetwork.prototype.getNetworks = function() {
 };
 
 FMNNetwork.prototype.getStations = function(network) {
-  return stations;
+  return this.stations;
 };
 
 FMNNetwork.prototype.getModes = function() {
@@ -21,7 +21,7 @@ FMNNetwork.prototype.search = function (network , departure , arrival , mode) {
 
 FMNNetwork.prototype.addNetwork = function (network) {
   if (this.networks.indexOf(network) == -1) {
-    this.networks.put(network);
+    this.networks.push(network);
   }
 };
 
@@ -34,8 +34,7 @@ FMNNetwork.prototype.addStations = function (network , stations ) {
   var networkToComplete = this.networks[networkIndex];
 
   var existingStations = this.getStations(networkToComplete) || new Array();
-  var newNetworkStations = existingStations.concat(stations);
-  //TODO To be continued
+  this.stations = existingStations.concat(stations);
 };
 
 FMNNetwork.prototype.addStation = function (network , station) {
