@@ -76,14 +76,28 @@ FMNGraph.prototype.updateCost = function (node1 , node2) {
 };
 
 FMNGraph.prototype.nearest = function (start , nodes) {
-  
+  // return nearest node to start that belongs to nodes
+  // as every edge are valued at 1 , we can return
+  // the first one
+  var nodes_count = nodes.length;
+  var min_distance = INF;
+  var nearest = null;
+
+  for (var i = 0 ; i < nodes_count ; i++) {
+    var node = this.nodes[i];
+    if (this.costs[node.name] < min_distance) {
+      min_distance = this.costs[node.name];
+      nearest = node;
+    }
+  }
+  return nearest;
 }
 
 FMNGraph.prototype.dijkstraSearch = function(start) {
   var marked = this.nodes.slice(0);
   while(marked.length > 0) {
     var nearest = this.nearest(start , marked);
-    nearest = marked.pop();
+    marked.pop();
     var neighbors = this.neighbors(nearest);
     for (var i in neighbors) {
       this.updateDistance(nearest , neighbors[i]);
