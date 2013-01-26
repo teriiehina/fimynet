@@ -18,7 +18,7 @@ var FMNGraph = {
 
   },
 
-  addEdge : function (node1 , node2 , value) {
+  addEdge : function (value , node1 , node2) {
 
   },
 
