@@ -34,7 +34,12 @@ FMNGraph.prototype.adjacent = function (node1 , node2) {
   var edges_count = this.edges.length;
   for (var i = 0 ; i < edges_count ; i++) {
     var edge = this.edges[i];
+    if (node1 == null || node1 == undefined)
+      console.log("adjacent ? : "  + node2.name);
     if(edge.node1Name == node1.name && edge.node2Name == node2.name) {
+      return 1;
+    }
+    if(edge.node1Name == node2.name && edge.node2Name == node1.name) {
       return 1;
     }
   }
@@ -91,11 +96,11 @@ FMNGraph.prototype.initCosts = function (start) {
       this.costs[this.nodes[i].name] = 1;
     }
   }
-  this.costs[start] = 0;
+  this.costs[start.name] = 0;
 };
 
 FMNGraph.prototype.updateCost = function (node1 , node2) {
-  if (this.costs[node2.name] > this.costs[node1.name] + 1) {
+  if (this.costs[node2.name] > (this.costs[node1.name] + 1)) {
     this.costs[node2.name] = this.costs[node1.name] + 1;
   }
 };
@@ -109,7 +114,7 @@ FMNGraph.prototype.nearest = function (start , nodes) {
   var nearest      = null;
 
   for (var i = 0 ; i < nodes_count ; i++) {
-    var node = this.nodes[i];
+    var node = nodes[i];
     if (this.costs[node.name] < min_distance) {
       min_distance = this.costs[node.name];
       nearest = node;
@@ -120,15 +125,23 @@ FMNGraph.prototype.nearest = function (start , nodes) {
 
 FMNGraph.prototype.dijkstraSearch = function(start) {
   var marked = this.nodes.slice(0);
+  console.log(this.nodes.length);
 
   while(marked.length > 0) {
     var nearest = this.nearest(start , marked);
-    var index_nearest = marked.indexOf(nearest);
-    marked.splice(index_nearest , 1);
+
     var neighbors = this.neighbors(nearest);
-    for (var i in neighbors) {
+    var neighbors_count = neighbors.length;
+
+    for (var i = 0 ; i < neighbors_count ; i++) {
       this.updateCost(nearest , neighbors[i]);
     }
+
+    var index_nearest = marked.indexOf(nearest);
+    marked.splice(index_nearest , 1);
+
+    console.log("on retire " + nearest.name + ":" + index_nearest);
+    console.log(marked.length + ":" + nearest.name + " = " + neighbors.length);
   }
 };
 
@@ -159,12 +172,13 @@ FMNGraph.prototype.path = function(start , end) {
 
 FMNGraph.prototype.pathBetween = function(start , end) {
 
-  this.initDistances();
-  this.initCosts(start);
-  this.dijkstraSearch(start);
-  
   var startNode = this.getNode(start);
   var endNode = this.getNode(end);
+
+  this.initDistances();
+  this.initCosts(startNode);
+  this.dijkstraSearch(start);
+  
 
   return this.path(startNode , endNode);
 
