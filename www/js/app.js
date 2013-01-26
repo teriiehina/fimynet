@@ -18,7 +18,12 @@ define(function(require) {
     require('./install-button');
 
     // Write your app here.
+    require('./fmn/FMNNetwork');
+    require('./fmn/FMNDataStructures');
 
+    require('./fmn/networks/FR_Paris_Subway');
+
+    require('./fmn/app_init');
 
 
 
