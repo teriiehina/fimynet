@@ -40,6 +40,7 @@ var FMNNetwork = {
 
     var existingStations = this.getStations(networkToComplete) || new Array();
     var newNetworkStations = existingStations.concat(stations);
+    //TODO To be continued
   },
 
   addStation : function (network , station) {
