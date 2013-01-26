@@ -1,6 +1,7 @@
 function FMNNetwork() {
   this.networks = new Array();
   this.stations = new Array();
+  this.currentNetwork = undefined;
 }
 
 FMNNetwork.prototype.getNetworks = function() {

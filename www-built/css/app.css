@@ -1,12 +1,23 @@
 
-/* Tip: Use "@import" to add styles instead of adding <link>'s in your
-   HTML, and volo will inline it when building for production */
-
-/* Styles for the installation button */
-@import "install-button.css";
-
-/* Your styles here */
-
+#install-btn {
+    background: #0088cc; 
+    background: -moz-linear-gradient(top,  #0088cc 0%, #0055cc 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0088cc), color-stop(100%,#0055cc)); 
+    background: -webkit-linear-gradient(top,  #0088cc 0%,#0055cc 100%); 
+    background: -o-linear-gradient(top,  #0088cc 0%,#0055cc 100%); 
+    background: -ms-linear-gradient(top,  #0088cc 0%,#0055cc 100%); 
+    background: linear-gradient(to bottom,  #0088cc 0%,#0055cc 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0088cc', endColorstr='#0055cc',GradientType=0 ); 
+    text-align: center;
+    font-size: 200%;
+    margin: 1em auto;
+    display: block;
+    padding: .5em;
+    color: white;
+    width: 10em;
+    max-width: 80%;
+    line-height: 1.2em;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -49,50 +60,38 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 html {
 	font-family: Arial;
 	background-color: black;
 }
-
 header {
-    background: linear-gradient(to bottom, #0088cc 0%, #0055cc 100%); /* W3C */
-
+    background: linear-gradient(to bottom, #0088cc 0%, #0055cc 100%); 
     text-align: center;
     font-size: 200%;
     color: white;
     width: 100%;
     padding: 10px 0;
-
     border-radius: 5px 5px 0 0;
 }
-
 section {
-	background: linear-gradient(to bottom, lightgrey 0%, grey 100%); /* W3C */
-
+	background: linear-gradient(to bottom, lightgrey 0%, grey 100%); 
 	width: : 100%;
 	padding: 15px 0;
 	border-top: 2px solid grey;
-
 	vertical-align: baseline;
 }
-
 section>* {
 	margin: 0 10px;
 }
-
 form#search {
 	text-align: center;
 }
-
 form#search input[type=submit] {
 	width: 40%;
 }
-
 form#search select {
 	width: 80%;
 }
-
 select {
 	height: 40px;
 	background: #A6A7BA;
@@ -102,11 +101,9 @@ select {
 	border-radius: 5px;
 	margin: 5px 0;
 }
-
 select>option {
 	padding: 2px 5px;
 	border-bottom: 2px solid white;
 	background: lightgrey;
 	color: grey;
 }
-
