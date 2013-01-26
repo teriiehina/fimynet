@@ -19,15 +19,7 @@ define(function(require) {
 
     // Write your app here.
 
-    // Core
-//    require('./app/FMNNetwork');
-//    require('./app/FMNDataStructures');
-
-    // Data
-//    require('./app/networks/FR_Paris_Subway');
-
-    // Init
-//    require('./app/app_init');
+    appInit();
 
 
 
