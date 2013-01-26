@@ -96,7 +96,7 @@ input, select {
 	padding: 5px 3px 5px 10px;
 	border-radius: 5px;
 }
-input:active, input:active {
+input:active, input:active, input:focus, input:focus {
 	background: linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
 }
 form#search input[type=submit] {

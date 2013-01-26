@@ -50,6 +50,8 @@ function onFormSubmit(event) {
 
 	var stations = myFMN.getStations(myFMN.currentNetwork);
 
+	var hasSucceeded = false;
+
 	if (fromStationIndex < 0) {
 		alert("Please choose a departure Station");
 	}
@@ -63,22 +65,36 @@ function onFormSubmit(event) {
 		var mode = $('#mode').val();
 		//onSearchSuccess(myFMN.search(myFMN.currentNetwork, stations[fromStationIndex] , stations[toStationIndex] , mode));
 		onSearchSuccess(paris.pathBetween(stations[fromStationIndex].name, stations[toStationIndex].name));
+		hasSucceeded = true;
 	}
+	if (!hasSucceeded)
+	{
+		onSearchError();
+	}
+
 	return false;
 }
 
+function onSearchError() {
+	$('#result').empty();
+}
+
 function onSearchSuccess(result) {
+	var divResult = $('#result');
+
 	if (result.length == 0) {
+		divResult.empty();
 		alert('No result found :(');
 	}
 	else {
-		var divResult = $('#result');
-
 		var ul = $('<ul />');
 		for (var resultIndex in result) {
 			var resultStation = result[resultIndex];
 			ul.append('<li>' + resultStation.name + '</li>');
 		}
 		divResult.html(ul);
+		setTimeout(function(){
+			window.scrollTo(0, document.body.scrollHeight);
+		}, 600);
 	}
 }
