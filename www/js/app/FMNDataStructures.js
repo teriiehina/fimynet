@@ -3,11 +3,30 @@ var INF = 10000;
 function FMNGraph() {
   this.nodes     = Array();
   this.edges     = Array();
-  this.distances = {};
+  this.costs     = {};
+  this.distances = null;
 };
 
 FMNGraph.prototype.toString = function() {
   return "we have " + this.nodes.length + " nodes and " + this.edges.length+ " edges";
+}
+
+FMNGraph.prototype.initDistances = function () {
+  if (this.distances != null ) return;
+  this.distances = {};
+  var nodes_count = this.nodes.length;
+
+  for(var i = 0 ; i < nodes_count ; i++) {
+    var node1 = this.nodes[i];
+    this.distances[node1.name] = {};
+    for (var j = 0 ; j < nodes_count ; j++) {
+      var node2 = this.nodes[j];
+      if (this.adjacent(node1 , node2))
+        this.distances[node1.name][node2.name] = 1;
+      else 
+        this.distances[node1.name][node2.name] = 0;
+    }
+  }
 }
 
 FMNGraph.prototype.adjacent = function (node1 , node2) {
@@ -35,22 +54,40 @@ FMNGraph.prototype.deleteEdge = function (node1, node2) {
 };
 
 FMNGraph.prototype.initPathSearch = function (start) {
-  this.distances = {};
+  this.costs = {};
   for (var i in this.nodes) {
-    this.distances[this.nodes[i].name] = INF;
+    this.costs[this.nodes[i].name] = INF;
   }
-  this.distances[start] = 0;
+  this.costs[start] = 0;
 };
 
-FMNGraph.prototype.updateDistance = function (node1 , node2) {
-  if (this.distances[node2] > this.distances[node1] + 1) {
-    this.distances[node2] = this.distances[node1] + 1;
+FMNGraph.prototype.updateCost = function (node1 , node2) {
+  if (this.costs[node2] > this.costs[node1] + 1) {
+    this.costs[node2] = this.costs[node1] + 1;
+  }
+};
+
+FMNGraph.prototype.nearest = function (start , nodes) {
+  
+}
+
+FMNGraph.prototype.dijkstraSearch = function(start) {
+  var marked = this.nodes.slice(0);
+  while(marked.length > 0) {
+    var nearest = this.nearest(start , marked);
+    nearest = marked.pop();
+    var neighbors = this.neighbors(nearest);
+    for (var i in neighbors) {
+      this.updateDistance(nearest , neighbors[i]);
+    }
   }
 };
 
 FMNGraph.prototype.pathBetween = function(start , end) {
 
+  this.initDistances();
   this.initPathSearch(start);
+  this.dijkstraSearch(start);
 
   return [
       ["ligne 4" , "station 2"],
