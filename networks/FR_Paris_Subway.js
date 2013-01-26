@@ -13,7 +13,7 @@ var l1_12 = "Tuileries";
 var l1_13 = "Palais Royal - Musée du Louvre";
 var l1_14 = "Louvre - Rivoli";
 var l1_15 = "Châtelet";
-var l1_16 = "Hôtel de Ville4e";
+var l1_16 = "Hôtel de Ville";
 var l1_17 = "Saint-Paul Le Marais";
 var l1_18 = "Bastille";
 var l1_19 = "Gare de Lyon";
@@ -24,12 +24,7 @@ var l1_23 = "Saint-MandéSaint-Mandé";
 var l1_24 = "BéraultSaint-Mandé, Vincennes";
 var l1_25 = "Château de Vincennes";
 
-var frParisSubway = {
-  // créer un graphe avec : 
-  //   - les nodes (les stations)
-  //   - les egdges (les portions de lignes)
-
-  var paris = new Graph();
+var paris = new FMNGraph();
 
   // ligne 1 , stations
 
@@ -113,4 +108,4 @@ var frParisSubway = {
   paris.addEdge("1" , l1_2  , l1_24 );
   paris.addEdge("1" , l1_1  , l1_25 );
 
-};
+

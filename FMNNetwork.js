@@ -12,7 +12,7 @@ var FMNNetwork = {
 
   getModes : function() {
     return ["stations", "correspondances"];
-  }
+  },
 
   search : function (network , departure , arrival , mode) {
     return [

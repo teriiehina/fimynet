@@ -1,15 +1,19 @@
 <html>
-<head>
-<script src="FMNNetwork.js"></script>
-<script>
-  var networks = FMNNetwork.getNetworks();
-  var stations = FMNNetwork.getStations(networks[0]);
+  <head>
+    <script src="FMNNetwork.js"></script>
+    <script src="FMNDataStructures.js"></script>
 
-  alert (FMNNetwork.getNetworks());
-  alert (FMNNetwork.getStations("a"));
-  alert (FMNNetwork.search(networks[0] , stations[0] , stations[1] , ""));
-</script>
-</head>
+    <script src="networks/FR_Paris_Subway.js"></script>
+    <script>
+      var networks = FMNNetwork.getNetworks();
+      var stations = FMNNetwork.getStations(networks[0]);
+
+//      alert (FMNNetwork.getNetworks());
+//      alert (FMNNetwork.getStations("a"));
+//      alert (FMNNetwork.search(networks[0] , stations[0] , stations[1] , ""));
+    </script>
+  </head>
+
 <body>
 
 </body>
