@@ -16,7 +16,7 @@ FMNGraph.prototype.neighbors = function(node) {
 };
 
 FMNGraph.prototype.addNode = function (name) {
-
+  this.nodes.push(new FMNNode(name));
 };
 
 FMNGraph.prototype.deleteNode = function (name) {
@@ -24,7 +24,7 @@ FMNGraph.prototype.deleteNode = function (name) {
 };
 
 FMNGraph.prototype.addEdge = function (value , node1 , node2) {
-
+  this.edges.push(new FMNEdge(value , node1 , node2));
 };
 
 FMNGraph.prototype.deleteEdge = function (node1, node2) {
