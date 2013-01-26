@@ -1,7 +1,11 @@
 function FMNGraph() {
-  var nodes = Array();
-  var edges = Array();
+  this.nodes = Array();
+  this.edges = Array();
 };
+
+FMNGraph.prototype.toString = function() {
+  return "we have " + this.nodes.length + " and " + this.edges.length+ " edges";
+}
 
 FMNGraph.prototype.adjacent = function (node1 , node2) {
 
