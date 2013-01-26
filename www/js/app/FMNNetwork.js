@@ -16,13 +16,6 @@ FMNNetwork.prototype.getModes = function() {
 };
 
 FMNNetwork.prototype.search = function (network , departure , arrival , mode) {
-  return [
-      ["ligne 4" , "station 2"],
-      ["ligne 4" , "station 3"],
-      ["ligne 5" , "station 4"],
-      ["ligne 5" , "station 5"],
-      ["ligne 6" , "station 6"]
-  ];
 };
 
 FMNNetwork.prototype.addNetwork = function (network) {
