@@ -1,8 +1,8 @@
 var INF = 10000;
 
 function FMNGraph() {
-  this.nodes     = Array();
-  this.edges     = Array();
+  this.nodes     = [];
+  this.edges     = [];
   this.costs     = {};
   this.distances = null;
 };
@@ -42,7 +42,16 @@ FMNGraph.prototype.adjacent = function (node1 , node2) {
 };
 
 FMNGraph.prototype.neighbors = function(node) {
+  var voisins = [];
+  var nodes_count = this.nodes.length;
 
+  for (var i = 0 ; i < nodes_count ; i++) {
+    if (this.adjacent(node , this.nodes[i])) {
+      voisins.push(this.nodes[i]);
+    }
+  }
+
+  return voisins;
 };
 
 FMNGraph.prototype.addNode = function (name) {
@@ -54,7 +63,7 @@ FMNGraph.prototype.addNode = function (name) {
 FMNGraph.prototype.getNode = function (name) {
   var nodes_count = this.nodes.length;
   for (var i = 0 ; i < nodes_count ; i++) {
-    if (this.nodes[i].name = name) {
+    if (this.nodes[i].name == name) {
       return this.nodes[i];
     }
   }  
@@ -73,18 +82,21 @@ FMNGraph.prototype.deleteEdge = function (node1, node2) {
 
 };
 
-FMNGraph.prototype.initPathSearch = function (start) {
+FMNGraph.prototype.initCosts = function (start) {
   this.costs = {};
   var nodes_count = this.nodes.length;
   for (var i = 0; i < nodes_count ; i++) {
     this.costs[this.nodes[i].name] = INF;
+    if (this.adjacent(start , this.nodes[i])) {
+      this.costs[this.nodes[i].name] = 1;
+    }
   }
   this.costs[start] = 0;
 };
 
 FMNGraph.prototype.updateCost = function (node1 , node2) {
-  if (this.costs[node2] > this.costs[node1] + 1) {
-    this.costs[node2] = this.costs[node1] + 1;
+  if (this.costs[node2.name] > this.costs[node1.name] + 1) {
+    this.costs[node2.name] = this.costs[node1.name] + 1;
   }
 };
 
@@ -92,9 +104,9 @@ FMNGraph.prototype.nearest = function (start , nodes) {
   // return nearest node to start that belongs to nodes
   // as every edge are valued at 1 , we can return
   // the first one
-  var nodes_count = nodes.length;
+  var nodes_count  = nodes.length;
   var min_distance = INF;
-  var nearest = null;
+  var nearest      = null;
 
   for (var i = 0 ; i < nodes_count ; i++) {
     var node = this.nodes[i];
@@ -108,22 +120,53 @@ FMNGraph.prototype.nearest = function (start , nodes) {
 
 FMNGraph.prototype.dijkstraSearch = function(start) {
   var marked = this.nodes.slice(0);
+
   while(marked.length > 0) {
     var nearest = this.nearest(start , marked);
     var index_nearest = marked.indexOf(nearest);
     marked.splice(index_nearest , 1);
     var neighbors = this.neighbors(nearest);
     for (var i in neighbors) {
-      this.updateDistance(nearest , neighbors[i]);
+      this.updateCost(nearest , neighbors[i]);
     }
   }
+};
+
+FMNGraph.prototype.previousNode = function (node) {
+  var neighbors = this.neighbors(node);
+  var neighbors_count = neighbors.length;
+  console.log(node.name + " : " + this.costs[node.name]);
+  for (var i = 0 ; i < neighbors_count ; i++ ) {
+    console.log(neighbors[i].name + " : " + this.costs[neighbors[i].name]);
+    if (this.costs[neighbors[i].name] == (this.costs[node.name] - 1)) {
+      return neighbors[i]; 
+    }
+  }
+  console.log(neighbors_count + " voisins et aucun précédent à " + node.name);
+  return null;
+};
+
+FMNGraph.prototype.path = function(start , end) {
+  var path = [];
+  var node = end;
+  path.push(node);
+  while(node != start) {
+    node = this.previousNode(node); 
+    path.push(node);
+  }
+  return path.reverse();
 };
 
 FMNGraph.prototype.pathBetween = function(start , end) {
 
   this.initDistances();
-  this.initPathSearch(start);
+  this.initCosts(start);
   this.dijkstraSearch(start);
+  
+  var startNode = this.getNode(start);
+  var endNode = this.getNode(end);
+
+  return this.path(startNode , endNode);
 
   return [
       ["ligne 4" , "station 2"],
