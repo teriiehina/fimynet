@@ -46,7 +46,19 @@ FMNGraph.prototype.neighbors = function(node) {
 };
 
 FMNGraph.prototype.addNode = function (name) {
-  this.nodes.push(new FMNNode(name));
+  if (this.getNode(name) == null) {
+    this.nodes.push(new FMNNode(name));
+  }
+};
+
+FMNGraph.prototype.getNode = function (name) {
+  var nodes_count = this.nodes.length;
+  for (var i = 0 ; i < nodes_count ; i++) {
+    if (this.nodes[i].name = name) {
+      return this.nodes[i];
+    }
+  }  
+  return null;
 };
 
 FMNGraph.prototype.deleteNode = function (name) {
@@ -63,7 +75,8 @@ FMNGraph.prototype.deleteEdge = function (node1, node2) {
 
 FMNGraph.prototype.initPathSearch = function (start) {
   this.costs = {};
-  for (var i in this.nodes) {
+  var nodes_count = this.nodes.length;
+  for (var i = 0; i < nodes_count ; i++) {
     this.costs[this.nodes[i].name] = INF;
   }
   this.costs[start] = 0;
@@ -97,7 +110,8 @@ FMNGraph.prototype.dijkstraSearch = function(start) {
   var marked = this.nodes.slice(0);
   while(marked.length > 0) {
     var nearest = this.nearest(start , marked);
-    marked.pop();
+    var index_nearest = marked.indexOf(nearest);
+    marked.splice(index_nearest , 1);
     var neighbors = this.neighbors(nearest);
     for (var i in neighbors) {
       this.updateDistance(nearest , neighbors[i]);
