@@ -1,4 +1,4 @@
-fimynet
+FiMyNet
 =======
 
-Fire my network
+Fire my network will rock your socks
