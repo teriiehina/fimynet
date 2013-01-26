@@ -5,7 +5,7 @@ function FMNNetwork() {
 }
 
 FMNNetwork.prototype.getNetworks = function() {
-  return ["métro parisien" , "métro tahitien"];
+  return ["Métro parisien" , "Métro tahitien"];
 };
 
 FMNNetwork.prototype.getStations = function(network) {

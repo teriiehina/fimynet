@@ -78,15 +78,32 @@ section {
 }
 
 section>* {
-	margin: 0 10px;
+	margin: 0 10px !important;
 }
 
 form#search {
 	text-align: center;
 }
 
+input, select {
+	background: linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	border:1px solid #dcdcdc;
+	height: 40px;
+	line-height: 35px;
+	font-weight:bold;
+	color: grey;
+	padding: 5px 3px 5px 10px;
+	border-radius: 5px;
+}
+
+input:active, input:active {
+	background: linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+}
+
 form#search input[type=submit] {
 	width: 40%;
+	border-radius: 5px;
+	text-transform:capitalize;
 }
 
 form#search select {
@@ -94,12 +111,6 @@ form#search select {
 }
 
 select {
-	height: 40px;
-	background: #A6A7BA;
-	color: #747A80;
-	border: #2C343C ;
-	padding: 5px 3px 5px 10px;
-	border-radius: 5px;
 	margin: 5px 0;
 }
 
@@ -108,5 +119,14 @@ select>option {
 	border-bottom: 2px solid white;
 	background: lightgrey;
 	color: grey;
+}
+
+ul {
+	padding: 10px 0;
+}
+
+ul>li {
+	border-left: 5px groove white;
+	padding: 5px 15px;
 }
 
