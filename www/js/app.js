@@ -20,14 +20,14 @@ define(function(require) {
     // Write your app here.
 
     // Core
-    require('./fmn/FMNNetwork');
-    require('./fmn/FMNDataStructures');
+//    require('./app/FMNNetwork');
+//    require('./app/FMNDataStructures');
 
     // Data
-    require('./fmn/networks/FR_Paris_Subway');
+//    require('./app/networks/FR_Paris_Subway');
 
     // Init
-    require('./fmn/app_init');
+//    require('./app/app_init');
 
 
 

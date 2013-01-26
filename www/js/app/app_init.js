@@ -1,5 +1,5 @@
 //var my$ = Zepto;
 
-var myFMNNetwork = new FMNNetwork();
-var networks = myFMNNetwork.getNetworks();
+var myFMN = new FMNNetwork();
+var networks = myFMN.getNetworks();
 alert(networks);
