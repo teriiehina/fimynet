@@ -8,7 +8,7 @@
       var networks = new FMNNetwork()
 //      alert (networks.getNetworks());
 //      alert (networks.getStations(""));
-     paris.pathBetween("Oberkampf", "Buzenval");
+     
 
     </script>
   </head>
@@ -22,6 +22,18 @@
 //      document.write(i + " : " + j + " = "  + paris.distances[i][j] + "<br>");
 //    }
 //  }
+//  var nodes_count = paris.nodes.length;
+//  for (var i = 0 ; i < nodes_count ; i++) {
+//    document.write(i + " = "  + paris.nodes[i] + "<br>");
+//  }
+
+  var trajet = paris.pathBetween("Oberkampf", "Bonne-Nouvelle");
+  trajet_length = trajet.length;
+  for (var i = 0 ; i < trajet.length ; i++) {
+    document.write(i + " = "  + trajet[i].name + "<br>");
+  }
+
+
 
   for (var i in paris.costs) {
     document.write(i + " = "  + paris.costs[i] + "<br>");

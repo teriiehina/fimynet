@@ -61,7 +61,7 @@ function onFormSubmit(event) {
 	else {
 		var mode = $('#mode').val();
 		//onSearchSuccess(myFMN.search(myFMN.currentNetwork, stations[fromStationIndex] , stations[toStationIndex] , mode));
-		onSearchSuccess(paris.pathBetween("Oberkampf", "Buzenval"));
+		onSearchSuccess(paris.pathBetween("Concorde", "Argentine"));
 	}
 	return false;
 }

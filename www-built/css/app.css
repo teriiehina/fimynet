@@ -86,16 +86,17 @@ section>* {
 form#search {
 	text-align: center;
 }
-form#search input, form#search select {
+input, select {
 	background: linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
 	border:1px solid #dcdcdc;
 	height: 40px;
+	line-height: 35px;
 	font-weight:bold;
 	color: grey;
 	padding: 5px 3px 5px 10px;
 	border-radius: 5px;
 }
-form#search input:active, form#search input[type=submit]:active {
+input:active, input:active {
 	background: linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
 }
 form#search input[type=submit] {
