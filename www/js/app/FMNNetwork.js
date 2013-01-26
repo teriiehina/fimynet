@@ -9,7 +9,7 @@ FMNNetwork.prototype.getNetworks = function() {
 };
 
 FMNNetwork.prototype.getStations = function(network) {
-  return ["station 1", "station 2", "station 3", "station 4", "station 5"];
+  return stations;
 };
 
 FMNNetwork.prototype.getModes = function() {
