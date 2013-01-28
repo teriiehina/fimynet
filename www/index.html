@@ -2,50 +2,40 @@
 <html>
   <head>
     <meta charset="utf-8">
-
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width;target-dpi=device-dpi">
-
-    <!-- Place favicon.ico in the root directory -->
+    <title>Fire My Transit</title>
+    <meta name="description" content="easy, fast and offline way to find your way in the parisian subway">
+    <meta name="viewport"    content="width=device-width;target-dpi=device-dpi">
+    <meta name="authors"     content="Christophe CARVALHO VILAS BOAS ; Peter MEUEL">
 
     <link rel="stylesheet" href="css/app.css">
 
     <script src="./js/app/FMNNetwork.js"></script>
     <script src="./js/app/FMNDataStructures.js"></script>
-
     <script src="./js/app/networks/FR_Paris_Subway.js"></script>
-
     <script type="text/javascript" src="./js/app/app_init.js"></script>
   </head>
+  
   <body>
-    <!-- Use this installation button to install locally without going
-         through the marketpace (see app.js) -->
     <button id="install-btn">Install</button>    
 
-    <!-- Write your application here -->
-
     <div id="app">
-
       <header>
-
         <span id="app_name">Fire My Transit</span>
 
         <select id="network_chooser">
           <option disable="disabled" value="-1">Choose the network</option>
         </select>
-
       </header>
 
-
       <section>
-
         <div>
           <form id="search" action="#" onsubmit="javascript:return false;">
+
             <select id="from" name="from">
               <option disable="disabled" value="-1">From Station...</option>
             </select>
             <br />
+
             <select id="to" name="to">
               <option disable="disabled" value="-1">To Station...</option>
             </select>
@@ -54,6 +44,7 @@
             <input id="mode" type="hidden" name="mode" value="-1"/>
             <input type="submit" value="a pied" onclick="javascript:onModeClick(this.value);"/>
             <input type="submit" value="autres" onclick="javascript:onModeClick(this.value);"/>
+
           </form>
         </div>
 
@@ -63,16 +54,6 @@
 
     </div>
 
-
-
-
-    
-    <!-- Using require.js, a module system for javascript, include the
-         js files. This loads "main.js", which in turn can load other
-         files, all handled by require.js:
-         http://requirejs.org/docs/api.html#jsfiles -->
-    <script type="text/javascript"
-            data-main="js/init.js"
-            src="js/lib/require.js"></script>
+    <script type="text/javascript" data-main="js/init.js" src="js/lib/require.js"></script>
   </body>
 </html>
