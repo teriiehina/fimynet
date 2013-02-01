@@ -1,10 +1,21 @@
+li.line {
+  padding-bottom: 15px;
+}
+
 li.line:before {
   font-weight: bold;
   border-radius: 10px 10px 10px 10px;
   padding: 5px;
+  margin-right: 10px;
   background:lightGrey;
   color: white;
 }
+
+li.line.single_digit:before {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 
 li.line_1:before {
   background: rgb(245 , 198 , 60);
@@ -23,7 +34,7 @@ li.line_3:before {
 
 li.line_3_bis:before {
   background: rgb(137 , 202 , 214);
-  content: "3 bis";
+  content: "3b";
 }
 
 li.line_4:before {
@@ -48,7 +59,7 @@ li.line_7:before {
 
 li.line_7_bis:before {
   background: rgb(115 , 184 , 124);
-  content: "7 bis";
+  content: "7b";
 }
 
 li.line_8:before {
