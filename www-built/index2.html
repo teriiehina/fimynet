@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fire My Transit</title>
+  <meta name="description"  content="easy, fast and offline way to find your way in the parisian subway">
+  <meta name="viewport"     content="width=device-width , initial-scale=1 , maximum-scale=1" />
+  <meta name="authors"      content="Christophe CARVALHO VILAS BOAS ; Peter MEUEL">
+
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/lines.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="./js/app/FMNNetwork.js"></script>
+  <script src="./js/app/FMNDataStructures.js"></script>
+  <script src="./js/app/networks/FR_Paris_Subway.js"></script>
+  <script type="text/javascript" src="./js/app/app_init.js"></script>
+</head>
+
+<body id="page">
+
+  <div id="pagecontainer">
+
+    <div id="header" class="black_gradient">
+      <a href="blog.html" id="header-install-btn" class="back_button black_button">Install</a>
+      <div class="page_title">FireMyTransit</div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="content">
+
+     <div id="search_form" class="tabcontent">
+        <div class="form">
+          <form id="search" action="#" onsubmit="javascript:return false;">
+
+            <label>From:</label>
+            <div class="select_container">
+              <select id="from" name="from" class="form_select">
+                <option disable="disabled" value="-1">From Station...</option>
+              </select>
+            </div>
+            
+            <label>To:</label>
+            <div class="select_container">
+              <select id="to" name="to" class="form_select">
+                <option disable="disabled" value="-1">To Station...</option>
+              </select>
+            </div>
+
+            <input type="submit" class="form_submit" value="Search" />
+          </form>
+        </div> <!-- .form -->
+      </div> <!-- #search_form.tabcontent -->
+      
+      <div id="travel" class="tabcontent">
+         <h3>This may help you:</h3>
+         <div id="result">
+           <ul>
+             <li class="line single_digit line_1">Les Sablons Jardin d'AcclimatationNeuilly-sur-Seine</li>
+             <li class="line single_digit line_2">Porte Maillot Palais des Congrès</li>
+             <li class="line single_digit line_3">Argentine</li>
+             <li class="line line_3_bis">Argentine bis</li>
+             <li class="line single_digit line_4">Charles de Gaulle - Étoile</li>
+             <li class="line single_digit line_5">George V</li>
+             <li class="line single_digit line_6">Franklin D. Roosevelt</li>
+             <li class="line single_digit line_7">Champs-Élysées - Clemenceau , Grand Palais</li>
+             <li class="line line_7_bis">Champs-Élysées - Clemenceau , Grand Palais bis</li>
+             <li class="line single_digit line_8">Concorde</li>
+             <li class="line single_digit line_9">Les Sablons Jardin d'AcclimatationNeuilly-sur-Seine</li>
+             <li class="line line_10">Porte Maillot Palais des Congrès</li>
+             <li class="line line_11">Argentine</li>
+             <li class="line line_12">Charles de Gaulle - Étoile</li>
+             <li class="line line_13">George V</li>
+             <li class="line line_14">Franklin D. Roosevelt</li>
+           </ul>
+         </div>
+       </div> <!-- #travel.tabcontent -->
+
+    </div> <!-- .content -->
+
+
+  </div>
+
+<script type="text/javascript" data-main="js/init.js" src="js/lib/require.js"></script>
+</body>
+</html>

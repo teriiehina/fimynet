@@ -24,6 +24,10 @@ css/lines.css
 ----------------
 css/lines.css
 
+css/style.css
+----------------
+css/style.css
+
 css/value_selector.css
 ----------------
 css/value_selector.css
