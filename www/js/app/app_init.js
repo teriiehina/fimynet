@@ -18,7 +18,8 @@ function appInit () {
   }
 
   networkChooser.bind('change', onNetworkSelected);
-  onNetworkSelected();
+  fillSelectFromNetworkWithIndex(0);
+  
 
   $('#search').bind('submit', onFormSubmit);
 }
@@ -26,17 +27,21 @@ function appInit () {
 function onNetworkSelected() {
   var choosenNetworkIndex = parseInt(this.value, 10);
   if (choosenNetworkIndex >= 0) {
-    var networks = myFMN.getNetworks();
-    myFMN.currentNetwork = networks[choosenNetworkIndex];
-
-    var networkStations = myFMN.getStations(myFMN.currentNetwork);
-    var stationSelects = $('#search select');
-    for (var stationIndex in networkStations) {
-      stationSelects.append('<option value="' + stationIndex + '">' + networkStations[stationIndex].name + '</option>');
-    }
+    fillSelectFromNetworkWithIndex(choosenNetworkIndex);
   }
   else {
     alert("Please choose a network.");
+  }
+}
+
+function fillSelectFromNetworkWithIndex(choosenNetworkIndex) {
+  var networks = myFMN.getNetworks();
+  myFMN.currentNetwork = networks[choosenNetworkIndex];
+
+  var networkStations = myFMN.getStations(myFMN.currentNetwork);
+  var stationSelects = $('#search select');
+  for (var stationIndex in networkStations) {
+    stationSelects.append('<option value="' + stationIndex + '">' + networkStations[stationIndex].name + '</option>');
   }
 }
 

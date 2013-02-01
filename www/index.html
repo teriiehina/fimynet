@@ -32,41 +32,36 @@
 
 
     <div id="app">
-      <header>
+      <!--header>
         <span id="app_name"></span>
 
         <select id="network_chooser">
           <option disable="disabled" value="-1">Choose the network</option>
         </select>
-      </header>
+      </header-->
 
       <section>
         <div>
           <form id="search" action="#" onsubmit="javascript:return false;">
             
-             <fieldset>
-            <legend>from</legend>
-            <section>
-            <p>
-              <select id="from" name="from">
-                <option disable="disabled" value="-1">From Station...</option>
-              </select>
-            </p>
-            </section>
-            </fieldset>
-            
-             <fieldset>
-            <legend>to</legend>
-            <section>
-            <p>
-
-              <select id="to" name="to">
-                <option disable="disabled" value="-1">To Station...</option>
-              </select>
-            </p>
-            </section>
+            <fieldset>
+              <legend>from</legend>
+              <section>
+                <select id="from" name="from">
+                  <option disable="disabled" value="-1">From Station...</option>
+                </select>
+              </section>
             </fieldset>
 
+            <fieldset>
+              <legend>to</legend>
+              <section>
+                <select id="to" name="to">
+                  <option disable="disabled" value="-1">To Station...</option>
+                </select>
+              </section>
+            </fieldset>
+            <br>
             <input id="mode" type="hidden" name="mode" value="-1"/>
             <button>Search</button>
           </form>
