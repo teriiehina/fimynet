@@ -1,0 +1,79 @@
+li.line {
+  padding-bottom: 15px;
+}
+li.line:before {
+  font-weight: bold;
+  border-radius: 10px 10px 10px 10px;
+  padding: 5px;
+  margin-right: 10px;
+  background:lightGrey;
+  color: white;
+}
+li.line.single_digit:before {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+li.line_1:before {
+  background: rgb(245 , 198 , 60);
+  content: "1";
+}
+li.line_2:before {
+  background: rgb(29 , 79 , 158);
+  content: "2";
+}
+li.line_3:before {
+  background: rgb(141 , 135 , 37);
+  content: "3";
+}
+li.line_3_bis:before {
+  background: rgb(137 , 202 , 214);
+  content: "3b";
+}
+li.line_4:before {
+  background: rgb(174 , 40 , 122);
+  content: "4";
+}
+li.line_5:before {
+  background: rgb(233 , 124 , 52);
+  content: "5";
+}
+li.line_6:before {
+  background: rgb(115 , 184 , 124);
+  content: "6";
+}
+li.line_7:before {
+  background: rgb(235 , 143 , 169);
+  content: "7";
+}
+li.line_7_bis:before {
+  background: rgb(115 , 184 , 124);
+  content: "7b";
+}
+li.line_8:before {
+  background: rgb(193 , 154 , 196);
+  content: "8";
+}
+li.line_9:before {
+  background: rgb(203 , 192 , 53);
+  content: "9";
+}
+li.line_10:before {
+  background: rgb(226 , 171 , 54);
+  content: "10";
+}
+li.line_11:before {
+  background: rgb(120 , 76 , 28);
+  content: "11";
+}
+li.line_12:before {
+  background: rgb(47 , 109 , 57);
+  content: "12";
+}
+li.line_13:before {
+  background: rgb(54 , 70 , 75);
+  content: "13";
+}
+li.line_14:before {
+  background: rgb(78 , 22 , 109);
+  content: "14";
+}
