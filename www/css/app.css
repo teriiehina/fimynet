@@ -81,10 +81,10 @@ section>* {
 	margin: 0 10px !important;
 }
 
-form#search {
-	text-align: center;
+/*form#search {
+  text-align: center;
 }
-
+*/
 /*input, select {
   background: linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
   border:1px solid #dcdcdc;
