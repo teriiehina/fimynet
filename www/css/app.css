@@ -85,20 +85,20 @@ form#search {
 	text-align: center;
 }
 
-input, select {
-	background: linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-	border:1px solid #dcdcdc;
-	height: 40px;
-	line-height: 35px;
-	font-weight:bold;
-	color: grey;
-	padding: 5px 3px 5px 10px;
-	border-radius: 5px;
-}
+/*input, select {
+  background: linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+  border:1px solid #dcdcdc;
+  height: 40px;
+  line-height: 35px;
+  font-weight:bold;
+  color: grey;
+  padding: 5px 3px 5px 10px;
+  border-radius: 5px;
+}*/
 
-input:active, input:active, input:focus, input:focus {
-	background: linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
-}
+/*input:active, input:active, input:focus, input:focus {
+  background: linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+}*/
 
 form#search input[type=submit] {
 	width: 40%;
@@ -106,20 +106,20 @@ form#search input[type=submit] {
 	text-transform:capitalize;
 }
 
-form#search select {
-	width: 80%;
-}
+/*form#search select {
+  width: 80%;
+}*/
 
-select {
-	margin: 5px 0;
+/*select {
+  margin: 5px 0;
 }
 
 select>option {
-	padding: 2px 5px;
-	border-bottom: 2px solid white;
-	background: lightgrey;
-	color: grey;
-}
+  padding: 2px 5px;
+  border-bottom: 2px solid white;
+  background: lightgrey;
+  color: grey;
+}*/
 
 ul {
 	padding: 10px 0;

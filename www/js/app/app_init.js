@@ -18,6 +18,7 @@ function appInit () {
 	}
 
 	networkChooser.bind('change', onNetworkSelected);
+	onNetworkSelected();
 
 	$('#search').bind('submit', onFormSubmit);
 }
@@ -29,7 +30,7 @@ function onNetworkSelected() {
 		myFMN.currentNetwork = networks[choosenNetworkIndex];
 
 		var networkStations = myFMN.getStations(myFMN.currentNetwork);
-		var stationSelects = $('#search>select');
+		var stationSelects = $('#search select');
 		for (var stationIndex in networkStations) {
 			stationSelects.append('<option value="' + stationIndex + '">' + networkStations[stationIndex].name + '</option>');
 		}

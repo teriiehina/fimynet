@@ -9,6 +9,11 @@
 
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/lines.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/input_areas.css">
+    <link rel="stylesheet" href="css/value_selector.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
 
     <script src="./js/app/FMNNetwork.js"></script>
     <script src="./js/app/FMNDataStructures.js"></script>
@@ -17,11 +22,18 @@
   </head>
   
   <body>
+    <section role="region" class="skin-organic">
+      <header>
+        <h1>Fire My Transit</h1>
+      </header>
+    </section>
+
     <button id="install-btn">Install</button>    
+
 
     <div id="app">
       <header>
-        <span id="app_name">Fire My Transit</span>
+        <span id="app_name"></span>
 
         <select id="network_chooser">
           <option disable="disabled" value="-1">Choose the network</option>
@@ -31,21 +43,32 @@
       <section>
         <div>
           <form id="search" action="#" onsubmit="javascript:return false;">
+            
+             <fieldset>
+            <legend>from</legend>
+            <section>
+            <p>
+              <select id="from" name="from">
+                <option disable="disabled" value="-1">From Station...</option>
+              </select>
+            </p>
+            </section>
+            </fieldset>
+            
+             <fieldset>
+            <legend>to</legend>
+            <section>
+            <p>
 
-            <select id="from" name="from">
-              <option disable="disabled" value="-1">From Station...</option>
-            </select>
-            <br />
-
-            <select id="to" name="to">
-              <option disable="disabled" value="-1">To Station...</option>
-            </select>
-            <br />
+              <select id="to" name="to">
+                <option disable="disabled" value="-1">To Station...</option>
+              </select>
+            </p>
+            </section>
+            </fieldset>
 
             <input id="mode" type="hidden" name="mode" value="-1"/>
-            <input type="submit" value="a pied" onclick="javascript:onModeClick(this.value);"/>
-            <input type="submit" value="autres" onclick="javascript:onModeClick(this.value);"/>
-
+            <button>Search</button>
           </form>
         </div>
 
