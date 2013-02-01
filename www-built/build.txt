@@ -4,9 +4,29 @@ css/app.css
 css/install-button.css
 css/app.css
 
+css/buttons.css
+----------------
+css/buttons.css
+
+css/header.css
+----------------
+css/header.css
+
+css/input_areas.css
+----------------
+css/input_areas.css
+
 css/install-button.css
 ----------------
 css/install-button.css
+
+css/lines.css
+----------------
+css/lines.css
+
+css/value_selector.css
+----------------
+css/value_selector.css
 
 js/lib/../app.js
 ----------------

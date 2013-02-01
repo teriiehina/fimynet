@@ -8,6 +8,12 @@
     <meta name="authors"     content="Christophe CARVALHO VILAS BOAS ; Peter MEUEL">
 
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/lines.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/input_areas.css">
+    <link rel="stylesheet" href="css/value_selector.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
 
     <script src="./js/app/FMNNetwork.js"></script>
     <script src="./js/app/FMNDataStructures.js"></script>
@@ -16,39 +22,74 @@
   </head>
   
   <body>
-    <button id="install-btn">Install</button>    
+    <section role="region" class="skin-organic">
+      <header>
+         <menu type="toolbar">
+        <button id="header-install-btn">install</button>
+        </menu>
+        <h1>Fire My Transit</h1>
+      </header>
+    </section>
+
+    <!--button id="install-btn">Install</button-->
+
 
     <div id="app">
-      <header>
-        <span id="app_name">Fire My Transit</span>
+      <!--header>
+        <span id="app_name"></span>
 
         <select id="network_chooser">
           <option disable="disabled" value="-1">Choose the network</option>
         </select>
-      </header>
+      </header-->
 
       <section>
         <div>
           <form id="search" action="#" onsubmit="javascript:return false;">
+            
+            <fieldset>
+              <legend>from</legend>
+              <section>
+                <select id="from" name="from">
+                  <option disable="disabled" value="-1">From Station...</option>
+                </select>
+              </section>
+            </fieldset>
 
-            <select id="from" name="from">
-              <option disable="disabled" value="-1">From Station...</option>
-            </select>
-            <br />
-
-            <select id="to" name="to">
-              <option disable="disabled" value="-1">To Station...</option>
-            </select>
-            <br />
-
+            <fieldset>
+              <legend>to</legend>
+              <section>
+                <select id="to" name="to">
+                  <option disable="disabled" value="-1">To Station...</option>
+                </select>
+              </section>
+            </fieldset>
+            <br>
             <input id="mode" type="hidden" name="mode" value="-1"/>
-            <input type="submit" value="a pied" onclick="javascript:onModeClick(this.value);"/>
-            <input type="submit" value="autres" onclick="javascript:onModeClick(this.value);"/>
-
+            <button>Search</button>
           </form>
         </div>
 
-        <div id="result" />
+        <div id="result">
+          <ul>
+            <li class="line single_digit line_1">Les Sablons Jardin d'AcclimatationNeuilly-sur-Seine</li>
+            <li class="line single_digit line_2">Porte Maillot Palais des Congrès</li>
+            <li class="line single_digit line_3">Argentine</li>
+            <li class="line line_3_bis">Argentine bis</li>
+            <li class="line single_digit line_4">Charles de Gaulle - Étoile</li>
+            <li class="line single_digit line_5">George V</li>
+            <li class="line single_digit line_6">Franklin D. Roosevelt</li>
+            <li class="line single_digit line_7">Champs-Élysées - Clemenceau , Grand Palais</li>
+            <li class="line line_7_bis">Champs-Élysées - Clemenceau , Grand Palais bis</li>
+            <li class="line single_digit line_8">Concorde</li>
+            <li class="line single_digit line_9">Les Sablons Jardin d'AcclimatationNeuilly-sur-Seine</li>
+            <li class="line line_10">Porte Maillot Palais des Congrès</li>
+            <li class="line line_11">Argentine</li>
+            <li class="line line_12">Charles de Gaulle - Étoile</li>
+            <li class="line line_13">George V</li>
+            <li class="line line_14">Franklin D. Roosevelt</li>
+          </ul>
+        </div>
 
       </section>
 
